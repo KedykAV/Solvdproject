@@ -18,15 +18,6 @@ public class Football extends TeamGames implements Type {
         this.gametype = gametype;
     }
 
-    public String getGametype() {
-        return gametype;
-    }
-
-    public void setGametype(String gameName) {
-        this.gametype = gameName;
-    }
-
-    @Override
     public String getCountry() {
         return country;
     }
@@ -34,9 +25,18 @@ public class Football extends TeamGames implements Type {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    @Override
+    public String getGametype() {
+        return gametype;
+    }
+
+    public void setGametype(String gametype) {
+        this.gametype = gametype;
+    }
     @Override
     public void printType(){
-        System.out.println("The type football game:");
+        System.out.println("The information of the gametype:");
     }
     public void printDiscr(){
         System.out.println("The size of team is: " + getSizeTeam());
