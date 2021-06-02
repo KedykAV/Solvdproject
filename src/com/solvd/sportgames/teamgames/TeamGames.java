@@ -38,5 +38,5 @@ public abstract class TeamGames {
         this.halftimes = halftimes;
         this.sizeHalftime = sizeHalftime;
     }
-    public abstract String getCountry();
+    public abstract String getGametype();
 }

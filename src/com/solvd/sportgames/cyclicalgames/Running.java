@@ -42,4 +42,6 @@ public class Running extends Cyclical implements TypeDistance{
 
     }
 
+    
+
 }

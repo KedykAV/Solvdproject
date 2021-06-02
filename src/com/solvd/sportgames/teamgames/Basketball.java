@@ -19,15 +19,6 @@ public class Basketball extends TeamGames implements Type {
         this.gametype = gametype;
     }
 
-    public String getGametype() {
-        return gametype;
-    }
-
-    public void setGametype(String gametype) {
-        this.gametype = gametype;
-    }
-
-    @Override
     public String getCountry() {
         return country;
     }
@@ -37,8 +28,17 @@ public class Basketball extends TeamGames implements Type {
     }
 
     @Override
+    public String getGametype() {
+        return gametype;
+    }
+
+    public void setGametype(String gametype) {
+        this.gametype = gametype;
+    }
+
+    @Override
     public void printType() {
-        System.out.println("The type of basketball game: ");
+        System.out.println("The information of the gametype: ");
     }
 
     public void printDiscr() {
