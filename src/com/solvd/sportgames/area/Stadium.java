@@ -4,7 +4,7 @@ import com.solvd.sportgames.cyclicalgames.Cyclical;
 import com.solvd.sportgames.teamgames.TeamGames;
 
 
-public class Stadium {
+public class Stadium extends Square{
     private TeamGames teamGames;
     private Cyclical cyclical;
 
