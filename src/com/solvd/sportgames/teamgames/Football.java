@@ -38,11 +38,12 @@ public class Football extends TeamGames implements Type {
     public void printType(){
         System.out.println("The information of the gametype:");
     }
-    public void printDiscr(){
-        System.out.println("The size of team is: " + getSizeTeam());
-        System.out.println("Number of times: " + getHalftimes());
-        System.out.println("The size of time: " + getSizeHalftime() + " min");
-        System.out.println("The host country: " + getCountry());
+    public String toString(){
+        return  ("Basketball info:"+"\n"
+                + "The size of team is: " + getSizeTeam() + ";" + "\n"
+                + "Number of times : " + getHalftimes() + " m" + ";" +"\n"
+                + "The size of time : " + getSizeHalftime() + ";" + "\n"
+                + "The host country: " + getCountry() + "." + "\n" );
     }
 
 

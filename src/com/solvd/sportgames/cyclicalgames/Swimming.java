@@ -21,11 +21,11 @@ public class Swimming extends Cyclical{
         this.type = type;
     }
 
-    public void printInfo(){
-        System.out.println("Swimming");
-        System.out.println("The type of swimming is: " + getType());
-        System.out.println("The distance length is: " + getDistance() + " m");
-        System.out.println("Number of laps: " + getLaps());
-        System.out.println("Type of stadium: " + getStadium());
+    public String toString(){
+        return  ("Running info:"+"\n"
+                + "The type running: " + getType() + ";" + "\n"
+                + "The distance length is: " + getDistance() + " m" + ";" +"\n"
+                + "Number of laps: " + getLaps() + ";" + "\n"
+                + "Type of stadium: " + getStadium() + ";" + "\n" );
     }
 }

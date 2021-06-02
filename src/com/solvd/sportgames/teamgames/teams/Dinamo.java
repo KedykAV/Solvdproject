@@ -27,10 +27,10 @@ public class Dinamo extends Football {
     }
 
     @Override
-    public void printDiscr(){
-        System.out.println("Dinamo");
-        System.out.println("The size of team is: " + getSizeTeam());
-        System.out.println("The host country: " + getCountry());
+    public String toString (){
+       return ("Dinamo team" + ":" +"\n"
+       + "The size of team is: " + getSizeTeam() + ";" + "\n"
+       + "The host country: " + getCountry() + ".");
 
     }
 }

@@ -8,7 +8,7 @@ public class Running extends Cyclical implements TypeDistance{
         setDistance(1500);
         setLaps(1);
         setStadium("Running stadium");
-        setType("Sprint");
+        setType("Without obstacles");
     }
     public Running (int distance, int laps, String stadium, String type){
         super(distance, laps, stadium);
@@ -20,12 +20,12 @@ public class Running extends Cyclical implements TypeDistance{
         return type;
     }
     @Override
-    public int Dist () {
+    public void Dist () {
         if (getDistance() > 1000) {
             System.out.println("long distance");
         } else
             System.out.println("Short distance");
-        return getDistance();
+
 
     }
 
@@ -33,13 +33,12 @@ public class Running extends Cyclical implements TypeDistance{
         this.type = type;
     }
 
-    public void printInfo(){
-        System.out.println("Running");
-        System.out.println("The type running is: " + getType());
-        System.out.println("The distance length is: " + Dist() + " m");
-        System.out.println("Number of laps: " + getLaps());
-        System.out.println("Type of stadium: " + getStadium());
-
+      public String toString(){
+        return  ("Running info:"+"\n"
+                + "The type running: " + getType() + ";" + "\n"
+                + "The distance length is: " + getDistance() + " m" + ";" +"\n"
+                + "Number of laps: " + getLaps() + ";" + "\n"
+                + "Type of stadium: " + getStadium() + "." + "\n" );
     }
 
     
