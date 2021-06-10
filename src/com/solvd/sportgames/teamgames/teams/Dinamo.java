@@ -3,9 +3,9 @@ package com.solvd.sportgames.teamgames.teams;
 import com.solvd.sportgames.teamgames.Football;
 
 public class Dinamo extends Football {
-    public Dinamo(){
+   public Dinamo(){
 
-    }
+   }
     @Override
     public void printType(){
         if (getSizeTeam()==5){

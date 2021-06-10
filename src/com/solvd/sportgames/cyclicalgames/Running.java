@@ -20,14 +20,17 @@ public class Running extends Cyclical implements TypeDistance{
         return type;
     }
     @Override
-    public void Dist () {
+    public void dist () {
         if (getDistance() > 1000) {
             System.out.println("long distance");
         } else
             System.out.println("Short distance");
 
 
+
     }
+
+
 
     public void setType(String type) {
         this.type = type;

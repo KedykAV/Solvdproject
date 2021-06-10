@@ -4,6 +4,8 @@ public class Football extends TeamGames implements Type {
     private String country;
     private String gametype;
 
+
+
     public Football() {
         setSizeTeam(11);
         setHalftimes(2);
@@ -39,7 +41,7 @@ public class Football extends TeamGames implements Type {
         System.out.println("The information of the gametype:");
     }
     public String toString(){
-        return  ("Basketball info:"+"\n"
+        return  ("Football info:"+"\n"
                 + "The size of team is: " + getSizeTeam() + ";" + "\n"
                 + "Number of times : " + getHalftimes() + " m" + ";" +"\n"
                 + "The size of time : " + getSizeHalftime() + ";" + "\n"
