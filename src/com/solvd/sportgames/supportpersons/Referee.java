@@ -1,6 +1,6 @@
 package com.solvd.sportgames.supportpersons;
 
-public class Referee extends Person implements Void{
+public class Referee extends Person implements Speak{
     private String category;
     public Referee(){
         setName("Jack");
