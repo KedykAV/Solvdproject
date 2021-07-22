@@ -2,6 +2,7 @@ package com.solvd.sportsgames.games.teamgames;
 
 public class Football extends TeamGames  {
     private String country;
+    private TeamGames teamGames;
 
 
 

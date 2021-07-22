@@ -5,10 +5,13 @@ import com.solvd.sportsgames.games.cyclicalgames.Running;
 import com.solvd.sportsgames.games.cyclicalgames.Swimming;
 import com.solvd.sportsgames.games.teamgames.Basketball;
 import com.solvd.sportsgames.games.teamgames.Football;
+import com.solvd.sportsgames.utils.JsonProc;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class ShowInfoGames {
+    private final static Logger LOGGER = Logger.getLogger(String.valueOf(ShowInfoGames.class));
     public void ChangeTypeSports(){
         Scanner in = new Scanner(System.in);
         System.out.println("1-Team Games \n2-Cyclical Games");
@@ -29,7 +32,12 @@ public class ShowInfoGames {
                             case "1":
                                 Football prof = new Football();
                                 prof.setGameType("Prof football");
-                                System.out.println(prof.toString());
+                                JsonProc jsonAct = new JsonProc();
+                                String jsonSrt = jsonAct.convertJavaToJsonStr(prof);
+                                LOGGER.info(jsonSrt);
+                                prof.setGameType("Prof football");
+
+                                //System.out.println(prof.toString());
                                 break;
                             case "2":
                                 Football mini = new Football();
