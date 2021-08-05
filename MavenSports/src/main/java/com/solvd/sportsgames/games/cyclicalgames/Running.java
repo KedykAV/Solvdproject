@@ -1,11 +1,11 @@
 package com.solvd.sportsgames.games.cyclicalgames;
 
 import com.solvd.sportsgames.area.Stadium;
+import org.apache.log4j.Logger;
 
-import java.util.logging.Logger;
 
 public class Running extends Cyclical implements TypeDistance {
-    private final static Logger LOGGER = Logger.getLogger(String.valueOf(Running.class));
+    private final static Logger LOGGER = Logger.getLogger(Running.class);
     private String type;
 
 

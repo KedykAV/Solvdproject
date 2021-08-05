@@ -7,6 +7,7 @@ import com.solvd.sportsgames.games.teamgames.Football;
 import com.solvd.sportsgames.title.Title;
 import com.solvd.sportsgames.utils.JsonProc;
 import com.solvd.sportsgames.utils.SMValue;
+import com.solvd.sportsgames.utils.SQLOperation;
 
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -33,7 +34,8 @@ public class Menu {
                 showInfoGames.ChangeTypeSports();
                 break;
             case "2":
-                stadium.AddGames();
+                SQLOperation sqlOperation = new SQLOperation();
+                sqlOperation.addSports();
                 break;
             case "3":
                 stadium.AddReferee();

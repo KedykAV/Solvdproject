@@ -1,12 +1,16 @@
 package com.solvd.sportsgames.menu;
 
 
+import com.solvd.sportsgames.coonect.Connector;
 import com.solvd.sportsgames.games.cyclicalgames.Running;
 import com.solvd.sportsgames.games.cyclicalgames.Swimming;
 import com.solvd.sportsgames.games.teamgames.Basketball;
 import com.solvd.sportsgames.games.teamgames.Football;
 import com.solvd.sportsgames.utils.JsonProc;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -30,22 +34,44 @@ public class ShowInfoGames {
                         String tfoot = in.nextLine();
                         switch (tfoot){
                             case "1":
-                                Football prof = new Football();
-                                prof.setGameType("Prof football");
-                                JsonProc jsonAct = new JsonProc();
-                                String jsonSrt = jsonAct.convertJavaToJsonStr(prof);
-                                LOGGER.info(jsonSrt);
-                                prof.setGameType("Prof football");
+                                System.out.println("Prof Football info: ");
+                                String query = "Select * FROM teamgames Where name_sport='Prof Football'";
+                                Connector connector = new Connector();
+                                try (PreparedStatement pst = connector.connect().prepareStatement(query)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String type_sport = resultSet.getString("type_sport");
+                                        String name_sport = resultSet.getString("name_sport");
+                                        int size_team =resultSet.getInt("size_team");
+                                        int halftimes = resultSet.getInt("halftimes");
+                                        int size_halftimes=resultSet.getInt("size_halftimes");
+                                        LOGGER.info(String.format("NAMESPORT=%s GAMETYPE=%s  SIZETEAM=%s HALFTIMES=%s SIZEHALFTIMES=%s",
+                                                name_sport,type_sport,size_team,halftimes,size_halftimes));
+                                    }
 
-                                //System.out.println(prof.toString());
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             case "2":
-                                Football mini = new Football();
-                                mini.setGameType("Mini football");
-                                mini.setHalftimes(3);
-                                mini.setSizeHalftime(20);
-                                mini.setSizeTeam(5);
-                                System.out.println(mini.toString());
+                                System.out.println("Mini football info: ");
+                                String query1 = "Select * FROM teamgames Where name_sport='Mini Football'";
+                                Connector connector1 = new Connector();
+                                try (PreparedStatement pst = connector1.connect().prepareStatement(query1)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String type_sport = resultSet.getString("type_sport");
+                                        String name_sport = resultSet.getString("name_sport");
+                                        int size_team =resultSet.getInt("size_team");
+                                        int halftimes = resultSet.getInt("halftimes");
+                                        int size_halftimes=resultSet.getInt("size_halftimes");
+                                        LOGGER.info(String.format("NAMESPORT=%s GAMETYPE=%s  SIZETEAM=%s HALFTIMES=%s SIZEHALFTIMES=%s",
+                                                name_sport,type_sport,size_team,halftimes,size_halftimes));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             default:
                                 System.out.println("You don't change type of football");
@@ -59,17 +85,44 @@ public class ShowInfoGames {
                         String tbask = in.nextLine();
                         switch (tbask){
                             case "1":
-                                Basketball prof = new Basketball();
-                                prof.setGameType("Prof Basketball");
-                                System.out.println(prof.toString());
+                                System.out.println("Prof Basketball info: ");
+                                String query = "Select * FROM teamgames Where name_sport='Prof Basketball'";
+                                Connector connector = new Connector();
+                                try (PreparedStatement pst = connector.connect().prepareStatement(query)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String type_sport = resultSet.getString("type_sport");
+                                        String name_sport = resultSet.getString("name_sport");
+                                        int size_team =resultSet.getInt("size_team");
+                                        int halftimes = resultSet.getInt("halftimes");
+                                        int size_halftimes=resultSet.getInt("size_halftimes");
+                                        System.out.println(String.format("NAMESPORT=%s GAMETYPE=%s  SIZETEAM=%s HALFTIMES=%s SIZEHALFTIMES=%s",
+                                                name_sport,type_sport,size_team,halftimes,size_halftimes));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             case "2":
-                                Basketball street = new Basketball();
-                                street.setGameType("Street ball");
-                                street.setHalftimes(3);
-                                street.setSizeHalftime(15);
-                                street.setSizeTeam(3);
-                                System.out.println(street.toString());
+                                System.out.println("Streetball info: ");
+                                String query1 = "Select * FROM teamgames Where name_sport='Streetball'";
+                                Connector connector1 = new Connector();
+                                try (PreparedStatement pst = connector1.connect().prepareStatement(query1)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String type_sport = resultSet.getString("type_sport");
+                                        String name_sport = resultSet.getString("name_sport");
+                                        int size_team =resultSet.getInt("size_team");
+                                        int halftimes = resultSet.getInt("halftimes");
+                                        int size_halftimes=resultSet.getInt("size_halftimes");
+                                        LOGGER.info(String.format("NAMESPORT=%s GAMETYPE=%s  SIZETEAM=%s HALFTIMES=%s SIZEHALFTIMES=%s",
+                                                name_sport,type_sport,size_team,halftimes,size_halftimes));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             default:
                                 System.out.println("You don't change type of basketball");
@@ -91,17 +144,44 @@ public class ShowInfoGames {
                         String trun = in.nextLine();
                         switch (trun){
                             case "1":
-                                Running sprint = new Running();
-                                sprint.setGameType("Sprint");
-                                sprint.setDistance(100);
-                                System.out.println(sprint.toString());
+                                System.out.println("Sprint info: ");
+                                String query1 = "Select * FROM cyclical Where discipline='Sprint'";
+                                Connector connector1 = new Connector();
+                                try (PreparedStatement pst = connector1.connect().prepareStatement(query1)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String discipline = resultSet.getString("discipline");
+                                        String type_sport = resultSet.getString("type_sport");
+                                        int distance =resultSet.getInt("distance");
+                                        int n_laps = resultSet.getInt("n_laps");
+                                        String stadium =resultSet.getString("stadium");
+                                        LOGGER.info(String.format("DISCIPLINE=%s GAMETYPE=%s  DISTANCE=%s NUMBER OF LAPS=%s STADIUM=%s",
+                                                discipline,type_sport,distance,n_laps,stadium));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             case "2":
-                                Running longdist = new Running();
-                                longdist.setGameType("Long distance running");
-                                longdist.setDistance(5000);
-                                longdist.setStadium("Nature");
-                                System.out.println(longdist.toString());
+                                System.out.println("Marathon info: ");
+                                String query = "Select * FROM cyclical Where discipline='marathon'";
+                                Connector connector = new Connector();
+                                try (PreparedStatement pst = connector.connect().prepareStatement(query)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String discipline = resultSet.getString("discipline");
+                                        String type_sport = resultSet.getString("type_sport");
+                                        int distance =resultSet.getInt("distance");
+                                        int n_laps = resultSet.getInt("n_laps");
+                                        String stadium =resultSet.getString("stadium");
+                                        LOGGER.info(String.format("DISCIPLINE=%s GAMETYPE=%s  DISTANCE=%s NUMBER OF LAPS=%s STADIUM=%s",
+                                                discipline,type_sport,distance,n_laps,stadium));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             default:
                                 System.out.println("You don't change type of running");
@@ -115,15 +195,44 @@ public class ShowInfoGames {
                         String tswim = in.nextLine();
                         switch (tswim){
                             case "1":
-                                Swimming butterfly = new Swimming();
-                                System.out.println(butterfly.toString());
+                                System.out.println("Butterfly info: ");
+                                String query = "Select * FROM cyclical Where discipline='Butterfly'";
+                                Connector connector = new Connector();
+                                try (PreparedStatement pst = connector.connect().prepareStatement(query)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String discipline = resultSet.getString("discipline");
+                                        String type_sport = resultSet.getString("type_sport");
+                                        int distance =resultSet.getInt("distance");
+                                        int n_laps = resultSet.getInt("n_laps");
+                                        String stadium =resultSet.getString("stadium");
+                                        LOGGER.info(String.format("DISCIPLINE=%s GAMETYPE=%s  DISTANCE=%s NUMBER OF LAPS=%s STADIUM=%s",
+                                                discipline,type_sport,distance,n_laps,stadium));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             case "2":
-                                Swimming back = new Swimming();
-                                back.setType("Backstroke swimming");
-                                back.setLaps(2);
-                                back.setDistance(100);
-                                System.out.println(back.toString());
+                                System.out.println("Backstroke swimming info: ");
+                                String query1 = "Select * FROM cyclical Where discipline='Backstroke swimming'";
+                                Connector connector1 = new Connector();
+                                try (PreparedStatement pst = connector1.connect().prepareStatement(query1)){
+                                    ResultSet resultSet = pst.executeQuery();
+                                    while (resultSet.next()){
+                                        String discipline = resultSet.getString("discipline");
+                                        String type_sport = resultSet.getString("type_sport");
+                                        int distance =resultSet.getInt("distance");
+                                        int n_laps = resultSet.getInt("n_laps");
+                                        String stadium =resultSet.getString("stadium");
+                                        LOGGER.info(String.format("DISCIPLINE=%s GAMETYPE=%s  DISTANCE=%s NUMBER OF LAPS=%s STADIUM=%s",
+                                                discipline,type_sport,distance,n_laps,stadium));
+                                    }
+
+                                } catch (SQLException throwables) {
+                                    throwables.printStackTrace();
+                                }
                                 break;
                             default:
                                 System.out.println("You don't change type of swimming");
