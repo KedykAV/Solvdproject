@@ -1,0 +1,8 @@
+Hello Sportsmen!
+Please select what do you want to do:
+1- Change type of sports game.
+2- Add sports to event and show.
+3- Show referee.
+4- Create account.
+5- Run Json.
+6- Exit program.
